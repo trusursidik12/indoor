@@ -20,7 +20,7 @@
 		<!-- Main content -->
 		<section class="content">
 
-		  <a href="export?group_id=<?= $_GET["group_id"]; ?>"><button>Download Data</button></a>
+		  <a href="<?= site_url() ?>export/?group_id=<?= $_GET["group_id"]; ?>"><button>Download Data</button></a>
 
 		  <!-- Default box -->
 			<div class="row d-flex align-items-stretch">

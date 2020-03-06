@@ -11,7 +11,7 @@
 
   <div class="card">
     <div class="card-header">
-      <a href="./?group_id=<?= $_GET["group_id"]; ?>"><button>Lihat Chart</button></a>
+      <a href="<?= site_url()?>?group_id=<?= $_GET["group_id"]; ?>"><button>Lihat Chart</button></a>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
