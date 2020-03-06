@@ -35,7 +35,7 @@ $dataPointsGresikTek01 = array(
 
   <div class="card p-3" style="margin-top: 100px;">
     <div class="d-flex">
-      <div class="col-sm-2 text-center" style="padding-top: 40px;">
+      <div class="col-sm-2 text-center" style="padding-top: 30px;">
         <table>
           <tr class="bg-dark">
             <td> > 300 <br> BERBAHAYA</td>
@@ -103,7 +103,7 @@ $dataPointsGresikTek01 = array(
               "#00eaff"               
               ]);
    
-  var chartrum = new CanvasJS.Chart("chartContainerRum", {
+  var indoor = new CanvasJS.Chart("chartContainerRum", {
     // legend :{
       dataPointMaxWidth: 600,
       title:{
@@ -117,14 +117,40 @@ $dataPointsGresikTek01 = array(
       interval: 50,
       maximum: 350
     },
+    axisX:{
+       labelFontSize: 32,
+       labelFontWeight: "bold",
+     },
     data: [{
       type: "column",
-      // yValueFormatString: "#,##0.00\"%\"",
+      indexLabelFontSize: 27,
       indexLabel: "{y}",
       dataPoints: <?php echo json_encode($dataPointsGresikTek01, JSON_NUMERIC_CHECK); ?>
     }]
   });
-  chartrum.render();
+  changeColor(indoor);
+  indoor.render();
+
+  function changeColor(indoor)
+  {
+    for (var i = 0; i < indoor.options.data.length; i++)
+    {
+      for (var j = 0; j < indoor.options.data[i].dataPoints.length; j++)
+      {
+        y = indoor.options.data[i].dataPoints[j].y;
+        if (y >= 0 & y <= 50.99)
+          indoor.options.data[i].dataPoints[j].color = "#00ff1e";//green
+        else if (y >= 51 & y <= 100.99)
+          indoor.options.data[i].dataPoints[j].color = "#0004ff";//blue
+        else if (y >= 101 & y <= 199.99)
+          indoor.options.data[i].dataPoints[j].color = "#f2ff00";//yellow
+        else if (y >= 200 & y <= 299.99)
+          indoor.options.data[i].dataPoints[j].color = "#ff1100";//red
+        else if (y > 300)
+          indoor.options.data[i].dataPoints[j].color = "#000000";//black
+      }
+    }  
+  }
 
 }
 
