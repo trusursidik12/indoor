@@ -29,6 +29,10 @@ $dataPointsGresikTek01 = array(
 </head>
 <body>
 
+    <div class="card-header">
+      <a href="<?= site_url()?>export?group_id=<?= $_GET["group_id"]; ?>"><button>Lihat Chart</button></a>
+    </div>
+
   <div class="card p-3" style="margin-top: 100px;">
     <div class="d-flex">
       <div class="col-sm-2 text-center" style="padding-top: 40px;">
